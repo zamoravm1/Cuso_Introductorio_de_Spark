@@ -514,6 +514,9 @@ En esta clase interactuamos con el RDD de la clase pasada
 
 **Por que no usar collect()**, si tuviéramos un servidor y su cluster correspondiente collect() hace que maquina server **driver** pida a todos cluster **ejecutores** que envíen la información que estaba distribuida respecto a esa consulta y la centralicen en el driver, imagina que tienes 10 millones de registros, pero tu computadora quizá solo soporte 1000, o peor aun sobrecargues la red, y consumas recursos críticos en producción. **NUNCA USES COLLECT()** a menos de que los datos sepas de antemano que son pocos y nunca en producción, mejor toma muestras con **take()**
 
+**Para verificar si efectivamente nuestra data fue bien cargada, podemos utilizar también .count() es menos pesada que .collect()**
+
+
 ### Clase 10 Acciones de conteo sobre RDDs
 
 En esta clase aprendemos como operar con dos o mas RDDs y obtener valores significativos con ellos.
